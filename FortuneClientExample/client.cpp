@@ -121,7 +121,7 @@ Client::Client(QWidget *parent)
             this, &Client::displayError);
 
     QGridLayout *mainLayout = Q_NULLPTR;
-    if (QGuiApplication::styleHints()->showIsFullScreen() || QGuiApplication::styleHints()->showIsMaximized()) {
+    if (QGuiApplication::styleHints()->showIsFullScreen() || QGuiApplication::styleHints()->showIsFullScreen()) {
         QVBoxLayout *outerVerticalLayout = new QVBoxLayout(this);
         outerVerticalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Ignored, QSizePolicy::MinimumExpanding));
         QHBoxLayout *outerHorizontalLayout = new QHBoxLayout;
@@ -179,13 +179,13 @@ void Client::requestNewFortune()
 
 void Client::readFortune()
 {
-    in.startTransaction();
+    //in.startTransaction();
 
     QString nextFortune;
     in >> nextFortune;
 
-    if (!in.commitTransaction())
-        return;
+    //if (!in.commitTransaction())
+    //    return;
 
     if (nextFortune == currentFortune) {
         QTimer::singleShot(0, this, &Client::requestNewFortune);
